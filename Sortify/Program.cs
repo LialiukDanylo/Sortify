@@ -7,30 +7,34 @@ namespace Sortify
     {
         public static void Main()
         {
+            ConfigService configService = new();
+            SortConfig config;
+
             try
             {
-                ConfigService _configService = new();
-                SortConfig config = _configService.LoadConfig("config.json");
-
-                Console.WriteLine("Please, enter the folder path");
-                while (true)
-                {
-                    Console.Write("Path: ");
-                    string path = Console.ReadLine();
-                    if (Directory.Exists(path))
-                    {
-                        Console.WriteLine($"Selected path: {path}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Folder does not exist. Try again.");
-                    }
-                }
+                config = configService.LoadConfig("config.json");
             }
-            catch (Exception ex)
+            catch (InvalidDataException ex)
             {
-                Console.WriteLine(ex.Message.ToString());
-                Console.ReadKey();
+                Console.WriteLine($"Warning: {ex.Message}");
+                Console.WriteLine("Using default configuration...\n");
+
+                config = configService.GetDefaultConfig();
+            }
+
+            Console.WriteLine("Please, enter the folder path");
+            while (true)
+            {
+                Console.Write("Path: ");
+                string path = Console.ReadLine();
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine($"Selected path: {path}");
+                }
+                else
+                {
+                    Console.WriteLine("Folder does not exist. Try again.");
+                }
             }
         }
     }
