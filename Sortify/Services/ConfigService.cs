@@ -36,8 +36,8 @@ namespace Sortify.Services
             {
                 SortingRules = new Dictionary<string, HashSet<string>>
                 {
-                    { "Pictures", [ ".jpg", ".jpeg", ".png", ".bmp", ".gif" ] },
-                    { "Documents", [ ".pdf", ".docx", ".txt", ".xlsx" ] },
+                    { "Pictures", [ ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".webp" ] },
+                    { "Documents", [ ".pdf", ".docx", ".txt", ".xlsx", ".xml", ".json" ] },
                     { "Videos", [ ".mp4", ".avi", ".mov", ".mkv" ] },
                     { "Archives", [ ".zip", ".rar", ".7z", ".tar" ] },
                     { "Music", [ ".mp3", ".wav", ".flac" ] }

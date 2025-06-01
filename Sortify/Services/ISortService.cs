@@ -1,7 +1,9 @@
-﻿namespace Sortify.Services
+﻿using Sortify.Models;
+
+namespace Sortify.Services
 {
     public interface ISortService
     {
-        public void Sort(string directory, string folder, HashSet<string> extensions);
+        public void SortFiles(SortConfig config, string directory);
     }
 }

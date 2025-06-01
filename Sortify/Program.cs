@@ -31,7 +31,7 @@ namespace Sortify
                 if (Directory.Exists(path))
                 {
                     Console.WriteLine($"Selected path: {path}");
-                    //sortService.Sort(path, "Images", [ ".png" ]);
+                    sortService.SortFiles(config, path);
                 }
                 else
                 {
