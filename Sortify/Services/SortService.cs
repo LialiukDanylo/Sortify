@@ -32,7 +32,18 @@ namespace Sortify.Services
             
             foreach (var file in filesToMove)
             {
-                string newPath = Path.Combine(pathToFolder, Path.GetFileName(file));
+                string fileName = Path.GetFileNameWithoutExtension(file);
+                string extension = Path.GetExtension(file);
+                string newPath = Path.Combine(pathToFolder, $"{fileName}{extension}");
+
+                int counter = 1;
+                while (File.Exists(newPath))
+                {
+                    string numberedName = $"{fileName}_({counter}){extension}";
+                    newPath = Path.Combine(pathToFolder, numberedName);
+                    counter++;
+                }
+
                 Directory.Move(file, newPath);
             }
         }
