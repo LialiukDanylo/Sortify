@@ -44,7 +44,7 @@ namespace Sortify.Services
                     counter++;
                 }
 
-                Directory.Move(file, newPath);
+                File.Move(file, newPath);
             }
         }
     }
