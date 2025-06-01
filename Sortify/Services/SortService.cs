@@ -2,7 +2,7 @@
 {
     public class SortService : ISortService
     {
-        public void Sort(string directory, string folder, string[] allowedExtensions)
+        public void Sort(string directory, string folder, HashSet<string> extensions)
         {
             string pathToFolder = Path.Combine(directory, folder);
 
@@ -13,13 +13,10 @@
             foreach (var file in files)
             {
                 string fileExtension = Path.GetExtension(file);
-                foreach (string extension in allowedExtensions)
+                if (extensions.Contains(fileExtension))
                 {
-                    if(fileExtension == extension)
-                    {
-                        string newPath = Path.Combine(pathToFolder, Path.GetFileName(file));
-                        Directory.Move(file, newPath);
-                    }
+                    string newPath = Path.Combine(pathToFolder, Path.GetFileName(file));
+                    Directory.Move(file, newPath);
                 }
             }
         }

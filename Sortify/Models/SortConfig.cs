@@ -2,6 +2,6 @@
 {
     public class SortConfig
     {
-        public Dictionary<string, string[]> SortingRules { get; set; } = new();
+        public Dictionary<string, HashSet<string>> SortingRules { get; set; } = new();
     }
 }

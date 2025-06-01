@@ -34,13 +34,13 @@ namespace Sortify.Services
         {
             return new SortConfig
             {
-                SortingRules = new Dictionary<string, string[]>
+                SortingRules = new Dictionary<string, HashSet<string>>
                 {
-                    { "Pictures", new[] { ".jpg", ".jpeg", ".png", ".bmp", ".gif" } },
-                    { "Documents", new[] { ".pdf", ".docx", ".txt", ".xlsx" } },
-                    { "Videos", new[] { ".mp4", ".avi", ".mov", ".mkv" } },
-                    { "Archives", new[] { ".zip", ".rar", ".7z", ".tar" } },
-                    { "Music", new[] { ".mp3", ".wav", ".flac" } }
+                    { "Pictures", [ ".jpg", ".jpeg", ".png", ".bmp", ".gif" ] },
+                    { "Documents", [ ".pdf", ".docx", ".txt", ".xlsx" ] },
+                    { "Videos", [ ".mp4", ".avi", ".mov", ".mkv" ] },
+                    { "Archives", [ ".zip", ".rar", ".7z", ".tar" ] },
+                    { "Music", [ ".mp3", ".wav", ".flac" ] }
                 }
             };
         }
