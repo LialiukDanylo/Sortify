@@ -8,6 +8,7 @@ namespace Sortify
         public static void Main()
         {
             ConfigService configService = new();
+            SortService sortService = new SortService();
             SortConfig config;
 
             try
@@ -30,6 +31,7 @@ namespace Sortify
                 if (Directory.Exists(path))
                 {
                     Console.WriteLine($"Selected path: {path}");
+                    //sortService.Sort(path, "Images", new string[] { ".png" });
                 }
                 else
                 {
